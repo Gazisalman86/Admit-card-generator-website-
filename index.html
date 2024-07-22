@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.shiksha.com/mediadata/images/1677147458phpNOAJhO.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<form action="input.html">
+    <div class="container">
+    <h1>Select Your Department </h1>
+        <select id="department" required>
+        <option value="">Select Department</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Electrical Engineering">Electrical Engineering</option>
+        <option value="Mechanical Engineering">Mechanical Engineering</option>
+        <option value="Civil Engineering">Civil Engineering</option>
+        <option value="Chemical Engineering">Chemical Engineering</option>
+        <option value="Biomedical Engineering">Biomedical Engineering</option>
+        <option value="Environmental Engineering">Environmental Engineering</option>
+        <option value="Aerospace Engineering">Aerospace Engineering</option>
+        <option value="Industrial Engineering">Industrial Engineering</option>
+        <option value="Materials Science">Materials Science</option>
+    </select>
+
+    <script>
+        function submitDepartment() {
+            var selectedDepartment = document.getElementById("department").value;
+            if (selectedDepartment) {
+                window.location.href = "index.html?department=" + encodeURIComponent(selectedDepartment);
+            }
+        }
+    </script>
+            <br><br>
+            <input type="submit" value="Submit">
+             </div>
+        </form>
+   
+</body>
+</html>

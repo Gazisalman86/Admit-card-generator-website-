@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output Data</title>
+    <style>
+        body{
+           font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.shiksha.com/mediadata/images/1677147458phpNOAJhO.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        strong {
+            font-weight: bold;
+        }
+        #photo {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sharda University</h1>
+        <div>
+            <p><strong>Name:</strong> <span id="name"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Age:</strong> <span id="age"></span></p>
+            <p><strong>Mobile Number:</strong> <span id="mobile"></span></p>
+            <p><strong>Address:</strong> <span id="address"></span></p>
+        </div>
+        <div class="container">
+            <h1>Your Uploaded Photo</h1>
+            <img id="photo" src="" alt="Uploaded Photo">
+        </div>
+
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const email = urlParams.get('email');
+            const age = urlParams.get('age');
+            const mobile = urlParams.get('mobile');
+            const address = urlParams.get('address');
+
+            document.getElementById('name').innerText = name;
+            document.getElementById('email').innerText = email;
+            document.getElementById('age').innerText = age;
+            document.getElementById('mobile').innerText = mobile;
+            document.getElementById('address').innerText = address;
+
+            // Get the file input element
+            const fileInput = document.getElementById('photo');
+            
+            // Check if a file was uploaded
+            if (fileInput.files.length > 0) {
+                // Create a FileReader instance
+                const reader = new FileReader();
+                
+                // When the file is loaded, set the src of the image
+                reader.onload = function(event) {
+                    document.getElementById('photo').src = event.target.result;
+                }
+                
+                // Read the uploaded file as a data URL
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        </script>
+    </div>
+</body>
+</html>
